@@ -15,12 +15,19 @@ import Link from "next/link";
 import React from "react";
 import { Badge } from "./ui/badge";
 
-const Sidebar = ({ isopen }: any) => {
+const Sidebar = ({ isopen, setSidebarOpen }: any) => {
   return (
-    <div>
+    <>
+      {/* Mobile Backdrop */}
+      {isopen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-30 md:hidden" 
+          onClick={() => setSidebarOpen && setSidebarOpen(false)} 
+        />
+      )}
       <aside
         className={cn(
-          " top-[53px]  w-48 lg:w-64 min-h-screen bg-white shadow-sm border-r transition-transform duration-200 ease-in-out md:translate-x-0",
+          "fixed md:sticky top-[53px] z-40 w-64 min-h-[calc(100vh-53px)] h-[calc(100vh-53px)] bg-white shadow-sm border-r transition-transform duration-200 ease-in-out md:translate-x-0 overflow-y-auto",
           isopen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -129,7 +136,7 @@ const Sidebar = ({ isopen }: any) => {
           </ul>
         </nav>
       </aside>
-    </div>
+    </>
   );
 };
 

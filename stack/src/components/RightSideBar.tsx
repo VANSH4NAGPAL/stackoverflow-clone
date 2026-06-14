@@ -88,7 +88,7 @@ const RightSideBar = () => {
   };
 
   return (
-    <aside className="w-72 lg:w-80 p-4 lg:p-6 bg-gray-50 min-h-screen">
+    <aside className="sticky top-[53px] w-72 lg:w-80 p-4 lg:p-6 bg-gray-50 h-[calc(100vh-53px)] overflow-y-auto">
       <div className="space-y-4 lg:space-y-6">
 
         <div>
